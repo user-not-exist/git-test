@@ -25,8 +25,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const postPage = path.resolve('src/templates/post.js')
-    const categoryPage = path.resolve('src/templates/category.js')
+    const postPage = path.resolve('src/_templates/post.js')
+    const categoryPage = path.resolve('src/_templates/category.js')
     resolve(
       graphql(`
         {
@@ -55,7 +55,6 @@ exports.createPages = ({ graphql, actions }) => {
         posts.forEach((edge, index) => {
           const next = index === 0 ? null : posts[index - 1].node
           const prev = index === posts.length - 1 ? null : posts[index + 1].node
-          console.log(edge.node.fields.slug, 'edge.node.fields.slug ')
 
           createPage({
             path: edge.node.fields.slug,
@@ -99,3 +98,20 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     },
   })
 }
+
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = '/app/*'
+
+    // Update the page.
+    createPage(page)
+  }
+}
+// Note: There is a convenient plugin that already does this work
+// for you: gatsby-plugin-create-client-paths

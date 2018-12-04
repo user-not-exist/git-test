@@ -1,11 +1,12 @@
-const config = require('./config/SiteConfig');
+const config = require('./config/site')
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
+    title: config.siteTitle,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -14,7 +15,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'post',
-        path: `${__dirname}/blog`,
+        path: `${__dirname}/_blog`,
       },
     },
     {
@@ -33,12 +34,12 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.js',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-typography',
+    //   options: {
+    //     pathToConfigModule: 'src/utils/typography.js',
+    //   },
+    // },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-lodash',
@@ -58,4 +59,4 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
   ],
-};
+}
