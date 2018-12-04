@@ -5,6 +5,7 @@
   "author": "LekoArts <hello@lekoarts.de>",
   "dependencies": {
     "antd": "^3.11.0",
+    "auth0-js": "^9.8.2",
     "babel-plugin-styled-components": "^1.8.0",
     "gatsby": "^2.0.37",
     "gatsby-plugin-catch-links": "^2.0.6",
@@ -30,6 +31,7 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "styled-components": "^4.0.3",
+    "tiny-cookie": "^2.3.0",
     "typography": "^0.16.17"
   },
   "keywords": [
