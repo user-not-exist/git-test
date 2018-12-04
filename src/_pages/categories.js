@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
-import { Layout, Wrapper, Header, SectionTitle } from '../components'
+import { Layout, Wrapper, Header, SectionTitle } from '../_components'
 import { media } from '../utils/media'
 
 import config from '../../config/site'
@@ -65,13 +65,13 @@ Category.propTypes = {
   }).isRequired,
 }
 
-export const postQuery = graphql`
-  query CategoriesPage {
-    allMarkdownRemark {
-      group(field: frontmatter___category) {
-        fieldValue
-        totalCount
-      }
-    }
-  }
-`
+// export const postQuery = graphql`
+//   query CategoriesPage {
+//     allMarkdownRemark {
+//       group(field: frontmatter___category) {
+//         fieldValue
+//         totalCount
+//       }
+//     }
+//   }
+// `
