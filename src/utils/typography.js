@@ -1,6 +1,6 @@
-import Typography from 'typography';
+import Typography from 'typography'
 
-const config = require('../../config/SiteConfig');
+const config = require('../../config/site')
 
 const typography = new Typography({
   title: 'Minimal',
@@ -20,11 +20,11 @@ const typography = new Typography({
       styles: ['400'],
     },
   ],
-});
+})
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles();
+  typography.injectStyles()
 }
 
-export default typography;
+export default typography

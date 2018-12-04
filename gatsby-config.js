@@ -1,6 +1,6 @@
-const config = require('./config/SiteConfig');
+const config = require('./config/site')
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -58,4 +58,4 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
   ],
-};
+}
