@@ -13,7 +13,7 @@ import Layout from '../components/Layout'
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout style="background: white">
       <h1>Hi {isLoggedIn() ? getUser().name : 'people'}</h1>
       <p>
         {isLoggedIn() ? (
@@ -26,6 +26,16 @@ const IndexPage = () => {
           </>
         )}
       </p>
+      <div>
+        <h3>
+          <b>Page examples:</b>
+        </h3>
+        <Link to="/resetPassword">resetPassword</Link>
+        <br />
+        <Link to="/countdown">countdown</Link>
+        <br />
+        <Link to="/wizard">wizard</Link>
+      </div>
     </Layout>
   )
 }
