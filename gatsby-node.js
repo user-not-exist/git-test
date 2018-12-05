@@ -92,9 +92,25 @@ exports.createPages = ({ graphql, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  // It is for absolute imports?
+  // actions.setWebpackConfig({
+  //   resolve: {
+  //     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  //   },
+  // })
+}
+
+exports.onCreateBabelConfig = ({ actions }) => {
+  if (process.env.NODE_ENV === 'production') {
+    actions.setBabelPlugin({
+      name: 'babel-plugin-emotion',
+    })
+    return
+  }
+  actions.setBabelPlugin({
+    name: 'babel-plugin-emotion',
+    options: {
+      sourceMap: true,
     },
   })
 }

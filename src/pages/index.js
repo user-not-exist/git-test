@@ -11,7 +11,8 @@ import Layout from '../components/Layout'
 //   }
 // `
 
-const IndexPage = () => {
+const IndexPage = (props) => {
+  console.log({ props })
   return (
     <Layout>
       <h1>Hi {isLoggedIn() ? getUser().name : 'people'}</h1>
